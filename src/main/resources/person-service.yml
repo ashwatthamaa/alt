@@ -1,0 +1,56 @@
+spring.main.allow-bean-definition-overriding: true
+---
+spring:
+  main:
+    banner-mode: console
+---
+spring:
+  application:
+    name: person-service
+eureka:
+  client:
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+---
+server:
+  port: 8091
+  context-path: /
+---
+logging:
+  level:
+    com.pankaj: TRACE
+---
+app:
+  message: MyMessageDefault
+---
+spring:
+  profiles: junit
+  datasource:
+    url: jdbc:h2:mem:testJunit
+    driver-class-name: org.h2.Driver
+    username: junit
+    password: junit
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+logging:
+  level:
+    com.pankaj: DEBUG
+app:
+  message: MyMessageJunit
+---
+spring:
+  profiles: local
+  datasource:
+    url: jdbc:h2:mem:testLocal
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+logging:
+  level:
+    com.pankaj: INFO
+app:
+  message: MyMessageLocal
+---

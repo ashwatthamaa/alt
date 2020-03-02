@@ -1,0 +1,13 @@
+spring.autoconfigure.exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+---
+spring:
+  application:
+    name: call-service
+eureka:
+  client:
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+---
+server:
+  port: 8092
